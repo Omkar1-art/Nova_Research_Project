@@ -1,0 +1,2476 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, Arial, sans-serif;
+}
+
+body{
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+  color:white;
+
+  background:
+    linear-gradient(rgba(6,8,25,.30), rgba(6,8,25,.30)),
+    url('./assets/background.png') center/cover no-repeat;
+}
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.bg-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    radial-gradient(circle at top,#6f00ff22,transparent 50%);
+}
+
+/* =====================================================
+   ALL GLASS BODY
+===================================================== */
+
+.glass,
+.glass-lite,
+.chat-panel,
+.sidebar,
+.left-panel,
+.main-panel,
+.voice-bar,
+.center-info,
+.top-icons,
+.mini,
+.engine,
+.bot-msg{
+
+  transition:
+    transform .35s ease,
+    opacity .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+/* =====================================================
+   GLASS
+===================================================== */
+
+.glass{
+
+  background:rgba(20,24,50,.22);
+
+  border:1px solid rgba(255,255,255,.10);
+
+  backdrop-filter:blur(8px);
+
+  -webkit-backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.20);
+
+  border-radius:28px;
+}
+
+/* =====================================================
+   GLASS LITE
+===================================================== */
+
+.glass-lite{
+
+  background:rgba(255,255,255,.06);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(6px);
+
+  border-radius:22px;
+}
+
+/* =====================================================
+   GLASS HOVER EFFECT
+===================================================== */
+
+.glass:hover,
+.glass-lite:hover,
+.chat-panel:hover,
+.sidebar:hover,
+.left-panel:hover,
+.main-panel:hover,
+.voice-bar:hover,
+.top-icons:hover,
+.mini:hover,
+.engine:hover,
+.bot-msg:hover{
+
+  transform:
+    translateY(-6px)
+    scale(1.01);
+
+  box-shadow:
+    0 12px 45px rgba(127,92,255,.25);
+}
+
+/* =====================================================
+   GLASS CLICK EFFECT
+===================================================== */
+
+.glass:active,
+.glass-lite:active,
+.chat-panel:active,
+.sidebar:active,
+.left-panel:active,
+.main-panel:active,
+.voice-bar:active,
+.top-icons:active,
+.mini:active,
+.engine:active,
+.bot-msg:active{
+
+  transform:scale(.98);
+}
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar{
+
+  position:fixed;
+
+  top:18px;
+  left:0;
+
+  width:100%;
+
+  height:54px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0 30px;
+
+  z-index:20;
+}
+
+/* =====================================================
+   TIME + WEATHER FIX
+===================================================== */
+
+.center-info{
+
+  position:absolute;
+
+  left:54%;
+
+  transform:translateX(-50%);
+
+  display:flex;
+  align-items:center;
+
+  gap:40px;
+
+  padding:12px 26px;
+
+  background:rgba(20,24,50,.22);
+
+  border:1px solid rgba(255,255,255,.10);
+
+  border-radius:28px;
+
+  backdrop-filter:blur(8px);
+
+  -webkit-backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.20);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease,
+    background .45s ease;
+}
+
+.center-info:hover{
+
+  transform:
+    translateX(-50%)
+    translateY(-5px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 45px rgba(127,92,255,.28);
+}
+
+#clock{
+
+  font-size:20px;
+
+  font-weight:600;
+}
+
+.top-location{
+
+  font-size:20px;
+
+  opacity:.9;
+}
+
+.top-icons{
+
+  position:absolute;
+
+  right:30px;
+
+  display:flex;
+  align-items:center;
+
+  gap:18px;
+
+  padding:10px 18px;
+
+  background:rgba(20,24,50,.22);
+
+  border:1px solid rgba(255,255,255,.10);
+
+  border-radius:28px;
+
+  backdrop-filter:blur(8px);
+
+  -webkit-backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.20);
+}
+
+.avatar{
+
+  width:36px;
+  height:36px;
+
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d4ff,
+      #7f5cff,
+      #ff00cc
+    );
+}
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard{
+
+  display:grid;
+
+  grid-template-columns:
+    280px
+    290px
+    1fr
+    430px;
+
+  gap:14px;
+
+  padding:82px 14px 14px;
+
+  height:100vh;
+}
+
+/* =====================================================
+   DASHBOARD BUTTON ANIMATION
+===================================================== */
+
+.menu li{
+
+  display:flex;
+  align-items:center;
+
+  gap:16px;
+
+  padding:18px 20px;
+
+  margin-bottom:14px;
+
+  border-radius:24px;
+
+  cursor:pointer;
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+.menu li:hover{
+
+  transform:
+    translateY(-4px)
+    scale(1.03);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(127,92,255,.45),
+      rgba(255,0,204,.28)
+    );
+
+  box-shadow:
+    0 0 24px rgba(127,92,255,.45);
+}
+
+.menu li:active{
+
+  transform:scale(.96);
+}
+
+.menu .active{
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(127,92,255,.45),
+      rgba(255,0,204,.28)
+    );
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar{
+
+  padding:22px 16px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.logo-wrap{
+
+  display:flex;
+  align-items:center;
+
+  gap:14px;
+
+  margin-bottom:25px;
+}
+
+.logo-circle{
+
+  width:55px;
+  height:55px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #00e5ff,
+      #7f5cff,
+      #ff00cc
+    );
+
+  box-shadow:0 0 25px rgba(127,92,255,.45);
+}
+
+.logo-wrap h1{
+
+  font-size:34px;
+
+  letter-spacing:4px;
+}
+
+.logo-wrap p{
+
+  font-size:11px;
+
+  opacity:.7;
+}
+
+.menu-icon{
+
+  font-size:22px;
+}
+
+/* =====================================================
+   LEFT PANEL
+===================================================== */
+
+.left-panel{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:20px;
+}
+
+.system-card,
+.quick-card,
+.chat-panel{
+
+  padding:18px;
+}
+
+.card-head{
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin-bottom:18px;
+}
+
+.live,
+.online{
+
+  color:#00ff99;
+}
+
+/* =====================================================
+   SYSTEM OVERVIEW
+===================================================== */
+
+.system-card{
+
+  transition:
+    transform .40s ease,
+    box-shadow .40s ease;
+}
+
+.system-card:hover{
+
+  transform:
+    translateY(-8px)
+    rotateX(2deg);
+
+  box-shadow:
+    0 14px 48px rgba(0,212,255,.20);
+}
+
+.system-card:active{
+
+  transform:scale(.98);
+}
+
+/* =====================================================
+   QUICK ACTION ANIMATION
+===================================================== */
+
+.quick-card{
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+.quick-card:hover{
+
+  transform:
+    translateY(-6px)
+    scale(1.02);
+
+  box-shadow:
+    0 12px 45px rgba(255,0,204,.22);
+}
+
+.quick-card:active{
+
+  transform:scale(.97);
+}
+
+/* =====================================================
+   QUICK ACTION BUTTON ANIMATION
+===================================================== */
+
+.quick-grid button,
+.suggestions button{
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+.quick-grid button:hover,
+.suggestions button:hover{
+
+  transform:
+    translateY(-4px)
+    scale(1.03);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(127,92,255,.45),
+      rgba(255,0,204,.28)
+    );
+
+  box-shadow:
+    0 0 24px rgba(127,92,255,.45);
+}
+
+.quick-grid button:active,
+.suggestions button:active{
+
+  transform:scale(.96);
+}
+
+/* =====================================================
+   MINI STATS
+===================================================== */
+
+.mini-stats{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:14px;
+
+  margin-bottom:18px;
+}
+
+.mini{
+
+  padding:18px;
+}
+
+.mini h2{
+
+  margin:10px 0 5px;
+}
+
+/* =====================================================
+   BARS
+===================================================== */
+
+.usage label{
+
+  display:flex;
+  justify-content:space-between;
+
+  margin:14px 0 8px;
+}
+
+.bar{
+
+  width:100%;
+  height:10px;
+
+  overflow:hidden;
+
+  border-radius:50px;
+
+  background:rgba(255,255,255,.08);
+}
+
+.bar div{
+
+  height:100%;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00d4ff,
+      #ff00cc
+    );
+}
+
+#cpu{width:28%;}
+#ram{width:46%;}
+#gpu{width:32%;}
+#storage{width:62%;}
+
+/* =====================================================
+   ENGINE
+===================================================== */
+
+.engine{
+
+  margin-top:20px;
+
+  padding:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.toggle{
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  background:#00ff99;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button{
+
+  border:none;
+  outline:none;
+
+  cursor:pointer;
+
+  color:white;
+
+  border-radius:18px;
+
+  transition:.3s ease;
+
+  background:rgba(255,255,255,.05);
+}
+
+button:hover{
+
+  transform:translateY(-2px);
+}
+
+.quick-grid,
+.suggestions{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:14px;
+
+  margin-top:20px;
+}
+
+.quick-grid button,
+.suggestions button{
+
+  padding:14px 10px;
+}
+
+/* =====================================================
+   MAIN PANEL
+===================================================== */
+
+.main-panel{
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+}
+
+.orb{
+
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      #00e5ff,
+      #8a2eff,
+      #ff00cc
+    );
+
+  box-shadow:0 0 50px rgba(127,92,255,.45);
+
+  animation:none;
+  pointer-events:none;
+}
+
+@keyframes float{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+}
+
+/* =====================================================
+   NOVA TITLE PERFECT FINAL
+===================================================== */
+
+.main-panel h1{
+
+  margin-top:28px;
+
+  font-size:78px;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  display:flex;
+  justify-content:center;
+
+  letter-spacing:100px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #9be7ff 20%,
+      #00d4ff 40%,
+      #7f5cff 68%,
+      #ff7bff 88%,
+      #ffffff 100%
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 0 22px rgba(0,212,255,.35),
+    0 0 34px rgba(127,92,255,.28);
+}
+
+/* =====================================================
+   NOVA SUBTITLE PERFECT FINAL
+===================================================== */
+
+.main-panel p{
+
+  margin-top:14px;
+
+  font-size:20px;
+
+  font-weight:300;
+
+  letter-spacing:22px;
+
+  color:rgba(255,255,255,.96);
+
+  text-transform:uppercase;
+}
+
+/* =====================================================
+   CHAT PANEL
+===================================================== */
+
+.chat-panel{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:16px;
+
+  height:calc(100vh - 110px);
+
+  overflow:hidden;
+
+  width:110%;
+
+  margin-left:-40px;
+}
+
+.chat-top{
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.assistant-head{
+
+  display:flex;
+  align-items:center;
+
+  gap:14px;
+}
+
+.ai-star{
+
+  width:52px;
+  height:52px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  font-size:24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d4ff,
+      #7f5cff,
+      #ff00cc
+    );
+}
+
+/* =====================================================
+   MESSAGES
+===================================================== */
+
+#messages{
+
+  height:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:12px;
+
+  overflow-y:auto;
+
+  padding-right:4px;
+
+  margin-top:10px;
+}
+
+.user-msg{
+
+  align-self:flex-end;
+
+  max-width:78%;
+
+  padding:14px 16px;
+
+  border-radius:22px 22px 4px 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7f5cff,
+      #ff00cc
+    );
+}
+
+.bot-msg{
+
+  align-self:flex-start;
+
+  max-width:78%;
+
+  padding:14px 16px;
+
+  border-radius:22px 22px 22px 4px;
+
+  background:rgba(255,255,255,.06);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(10px);
+}
+
+/* =====================================================
+   CHAT INPUT FIX FINAL
+===================================================== */
+
+.chat-input{
+
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  padding:14px 18px;
+
+  overflow:visible;
+
+  width:100%;
+}
+
+/* =====================================================
+   CHAT INPUT FIELD FIX
+===================================================== */
+
+.chat-input input{
+
+  flex:1;
+
+  min-width:0;
+
+  border:none;
+
+  outline:none;
+
+  background:transparent;
+
+  color:white;
+
+  font-size:15px;
+
+  padding:12px;
+
+  box-shadow:none;
+}
+
+/* =====================================================
+   CHAT INPUT FOCUS FIX
+===================================================== */
+
+.chat-input input:focus{
+
+  background:transparent;
+
+  border:none;
+
+  outline:none;
+
+  box-shadow:none;
+}
+
+/* =====================================================
+   SEND BUTTON FIX FINAL
+===================================================== */
+
+.send-btn{
+
+  width:46px;
+  height:46px;
+
+  min-width:46px;
+  min-height:46px;
+
+  border:none;
+
+  border-radius:50%;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  padding:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d4ff,
+      #7f5cff,
+      #ff00cc
+    );
+}
+
+/* =====================================================
+   SEND ICON FIX
+===================================================== */
+
+.send-btn i,
+.send-btn span{
+
+  font-size:15px;
+
+  line-height:1;
+
+  transform:translateX(-1px);
+}
+
+/* =====================================================
+   MIC + STOP FIX
+===================================================== */
+
+.mic-btn,
+.stop-btn{
+
+  width:46px;
+  height:46px;
+
+  min-width:46px;
+  min-height:46px;
+
+  border:none;
+
+  border-radius:50%;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d4ff,
+      #7f5cff,
+      #ff00cc
+    );
+
+  box-shadow:
+    0 0 22px rgba(127,92,255,.35);
+}
+
+.mic-btn span,
+.stop-btn span{
+
+  font-size:18px;
+}
+
+.mic-btn:hover,
+.stop-btn:hover,
+.send-btn:hover{
+
+  transform:scale(1.08);
+
+  box-shadow:
+    0 0 28px rgba(127,92,255,.55);
+}
+
+/* =====================================================
+   VOICE BAR POSITION FINAL
+===================================================== */
+
+.voice-bar{
+
+  width:420px;
+
+  height:78px;
+
+  margin-top:40px;
+
+  border-radius:24px;
+
+  padding:0 24px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    rgba(25,30,65,.34);
+
+  border:
+    1px solid rgba(255,255,255,.14);
+
+  backdrop-filter:blur(10px);
+
+  -webkit-backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 22px rgba(127,92,255,.18),
+    0 0 38px rgba(0,212,255,.12);
+}
+
+/* =====================================================
+   VOICE LINE
+===================================================== */
+
+.voice-line{
+
+  width:100%;
+
+  height:32px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:0 10px;
+}
+
+/* =====================================================
+   WAVES
+===================================================== */
+
+.voice-line span{
+
+  width:2px;
+
+  height:4px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      to top,
+      #00d4ff,
+      #7f5cff,
+      #ff00cc
+    );
+
+  opacity:.85;
+
+  transition:.3s;
+}
+
+/* =====================================================
+   ACTIVE WAVES
+===================================================== */
+
+.voice-bar.active span{
+
+  animation:wave .9s linear infinite;
+}
+
+.voice-bar.active span:nth-child(odd){
+
+  animation-duration:.8s;
+}
+
+.voice-bar.active span:nth-child(even){
+
+  animation-duration:1s;
+}
+
+/* =====================================================
+   WAVE ANIMATION
+===================================================== */
+
+@keyframes wave{
+
+  0%{
+
+    transform:scaleY(.4);
+    opacity:.4;
+  }
+
+  25%{
+
+    transform:scaleY(3);
+    opacity:1;
+  }
+
+  50%{
+
+    transform:scaleY(.7);
+    opacity:.8;
+  }
+
+  75%{
+
+    transform:scaleY(4);
+    opacity:1;
+  }
+
+  100%{
+
+    transform:scaleY(.4);
+    opacity:.4;
+  }
+}
+
+/* =====================================================
+   BRIGHT UI FIX
+===================================================== */
+
+body{
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+  color:white;
+
+  background:
+    linear-gradient(rgba(6,8,25,.18), rgba(6,8,25,.18)),
+    url('./assets/background.png') center/cover no-repeat;
+
+  filter:brightness(1.08);
+}
+
+/* =====================================================
+   BRIGHT GLASS
+===================================================== */
+
+.glass{
+
+  background:rgba(28,34,68,.34);
+
+  border:1px solid rgba(255,255,255,.16);
+
+  backdrop-filter:blur(8px);
+
+  -webkit-backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.18);
+
+  border-radius:28px;
+}
+
+/* =====================================================
+   BRIGHT GLASS LITE
+===================================================== */
+
+.glass-lite{
+
+  background:rgba(255,255,255,.10);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(6px);
+
+  border-radius:22px;
+}
+
+/* =====================================================
+   TOP GLASS BRIGHT
+===================================================== */
+
+.center-info,
+.top-icons{
+
+  background:rgba(28,34,68,.34);
+
+  border:1px solid rgba(255,255,255,.16);
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.18);
+}
+
+/* =====================================================
+   VOICE BAR BRIGHT
+===================================================== */
+
+.voice-bar{
+
+  background:rgba(28,34,68,.34);
+
+  border:1px solid rgba(255,255,255,.16);
+
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.18);
+}
+
+.logo-circle,
+.avatar{
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:transparent;
+}
+
+.logo-circle img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  filter:
+    drop-shadow(0 0 10px #7f5cff)
+    drop-shadow(0 0 18px #00d4ff);
+}
+
+.avatar img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  filter:
+    drop-shadow(0 0 8px #7f5cff)
+    drop-shadow(0 0 14px #00d4ff);
+}
+
+/* =====================================================
+   NOVA LOGO ANIMATION
+===================================================== */
+
+.orb{
+
+  width:250px;
+  height:250px;
+
+  margin-left:-18px;
+
+  margin-top:20px;
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:transparent;
+
+  animation:
+    orbFloat 4s ease-in-out infinite,
+    orbGlow 3s ease-in-out infinite;
+}
+
+/* =====================================================
+   NOVA LOGO IMAGE
+===================================================== */
+
+.orb img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:50%;
+
+  display:block;
+
+  filter:
+    drop-shadow(0 0 18px #7f5cff)
+    drop-shadow(0 0 28px #00d4ff);
+}
+
+/* =====================================================
+   FLOAT ANIMATION
+===================================================== */
+
+@keyframes orbFloat{
+
+  0%,100%{
+
+    transform:
+      translateY(0px)
+      scale(1);
+  }
+
+  50%{
+
+    transform:
+      translateY(-10px)
+      scale(1.03);
+  }
+}
+
+
+/* =====================================================
+   NOVA TITLE BIGGER
+===================================================== */
+
+.main-panel h1{
+
+  margin-top:28px;
+
+  font-size:64px;
+
+  letter-spacing:12px;
+}
+
+/* =====================================================
+   NOVA SUBTITLE BIGGER
+===================================================== */
+
+.main-panel p{
+
+  font-size:18px;
+
+  letter-spacing:7px;
+
+  opacity:.9;
+}
+
+/* =========================================
+   CODE BLOCK
+========================================= */
+
+pre{
+
+  background:
+  rgba(0,0,0,.35);
+
+  padding:14px;
+
+  border-radius:16px;
+
+  overflow:auto;
+
+  margin-top:10px;
+
+  color:#8be9fd;
+
+  font-size:14px;
+}
+
+code{
+
+  font-family:
+  monospace;
+}
+
+/* =========================================
+   THINKING DOTS
+========================================= */
+
+.dots{
+
+  animation:
+  blink 1s infinite;
+}
+
+@keyframes blink{
+
+  0%{
+    opacity:.2;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:.2;
+  }
+}
+
+/* =========================================
+   CLEAR CHAT BUTTON
+========================================= */
+
+.chat-actions{
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.clear-chat-btn{
+
+  padding:10px 16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  color:white;
+
+  font-size:13px;
+
+  cursor:pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7f5cff,
+      #ff00cc
+    );
+
+  transition:.3s ease;
+}
+
+.clear-chat-btn:hover{
+
+  transform:scale(1.05);
+
+  box-shadow:
+    0 0 20px rgba(127,92,255,.45);
+}
+
+/* =========================================
+   COPY BUTTON
+========================================= */
+
+.copy-btn{
+
+  margin-top:10px;
+
+  padding:8px 14px;
+
+  border:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  color:white;
+
+  font-size:12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00d4ff,
+      #7f5cff
+    );
+
+  transition:.3s ease;
+}
+
+.copy-btn:hover{
+
+  transform:scale(1.05);
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media(max-width:1200px){
+
+  .dashboard{
+
+    grid-template-columns:
+    1fr;
+
+    overflow-y:auto;
+
+    height:auto;
+  }
+
+  .sidebar,
+  .left-panel,
+  .chat-panel{
+
+    width:100%;
+
+    margin:0;
+  }
+
+  .main-panel{
+
+    padding:50px 0;
+  }
+
+  .chat-panel{
+
+    width:100%;
+
+    margin-left:0;
+  }
+}
+
+@media(max-width:768px){
+
+  .main-panel h1{
+
+    font-size:42px;
+
+    letter-spacing:8px;
+  }
+
+  .main-panel p{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+  }
+
+  .orb{
+
+    width:170px;
+    height:170px;
+  }
+
+  .voice-bar{
+
+    width:92%;
+  }
+
+  .chat-input{
+
+    gap:8px;
+  }
+
+  .mic-btn,
+  .stop-btn,
+  .send-btn{
+
+    width:42px;
+    height:42px;
+  }
+
+  .bot-msg,
+  .user-msg{
+
+    max-width:92%;
+  }
+}
+
+/* =========================================
+   HIDDEN PANEL
+========================================= */
+
+.hidden-panel{
+
+  display:none;
+}
+
+/* =========================================
+   NOTES PANEL
+========================================= */
+
+/* =========================================
+   NOTES PANEL FINAL FIX
+========================================= */
+
+.notes-panel{
+
+  position:fixed;
+
+  top:50%;
+
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  width:520px;
+
+  padding:24px;
+
+  border-radius:28px;
+
+  z-index:99999;
+
+  backdrop-filter:blur(18px);
+
+  animation:none !important;
+
+  transition:none !important;
+
+  display:none;
+}
+
+/* =========================================
+   NOTES HEADER
+========================================= */
+
+.notes-header{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin-bottom:20px;
+}
+
+/* =========================================
+   NOTES TEXTAREA
+========================================= */
+
+.notes-panel textarea{
+
+  width:100%;
+
+  height:240px;
+
+  border:none;
+
+  outline:none;
+
+  resize:none;
+
+  padding:18px;
+
+  border-radius:20px;
+
+  background:
+  rgba(255,255,255,.08);
+
+  color:white;
+
+  font-size:15px;
+}
+
+/* =========================================
+   NOTES BUTTONS
+========================================= */
+
+.notes-actions{
+
+  display:flex;
+
+  gap:12px;
+
+  margin-top:18px;
+}
+
+#saveNotesBtn,
+#deleteNotesBtn{
+
+  flex:1;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:18px;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #00d4ff,
+    #7f5cff,
+    #ff00cc
+  );
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+#closeNotesBtn{
+
+  width:42px;
+
+  height:42px;
+
+  border:none;
+
+  border-radius:50%;
+
+  color:white;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff0066,
+    #7f5cff
+  );
+}
+
+/* =========================================
+   CAMERA PANEL
+========================================= */
+
+.camera-panel{
+
+  position:fixed;
+
+  top:50%;
+
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  width:600px;
+
+  padding:20px;
+
+  z-index:999;
+}
+
+#cameraVideo{
+
+  width:100%;
+
+  border-radius:24px;
+}
+
+/* =========================================
+   SCAN EFFECT
+========================================= */
+
+.scan-active{
+
+  animation:
+  scanGlow 1s infinite;
+}
+
+@keyframes scanGlow{
+
+  0%{
+
+    box-shadow:
+    0 0 0 rgba(0,212,255,.1);
+  }
+
+  50%{
+
+    box-shadow:
+    0 0 40px rgba(0,212,255,.5);
+  }
+
+  100%{
+
+    box-shadow:
+    0 0 0 rgba(0,212,255,.1);
+  }
+}
+
+/* =========================================
+   FIXED PANELS
+========================================= */
+
+.notes-panel,
+.camera-panel{
+
+  position:fixed;
+
+  top:50%;
+
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  z-index:9999;
+
+  animation:none !important;
+}
+
+/* =========================================
+   PANEL HEADER
+========================================= */
+
+.notes-header,
+.camera-header{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+#closeNotesBtn,
+#closeCameraBtn{
+
+  width:40px;
+
+  height:40px;
+
+  border:none;
+
+  border-radius:50%;
+
+  color:white;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff0066,
+    #7f5cff
+  );
+}
+
+/* =========================================
+   NOTES ACTIONS
+========================================= */
+
+.notes-actions{
+
+  display:flex;
+
+  gap:12px;
+
+  margin-top:18px;
+}
+
+#deleteNotesBtn{
+
+  flex:1;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:18px;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff004c,
+    #ff6600
+  );
+}
+
+#saveNotesBtn{
+
+  flex:1;
+}
+
+/* =========================================
+   CAPTURE BUTTON
+========================================= */
+
+#captureBtn{
+
+  width:100%;
+
+  margin-top:18px;
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:18px;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #00d4ff,
+    #7f5cff,
+    #ff00cc
+  );
+}
+
+/* =========================================
+   NOTES FINAL STABLE FIX
+========================================= */
+
+.notes-panel,
+.notes-panel:hover{
+
+  transform:
+  translate(-50%,-50%) !important;
+
+  top:50% !important;
+
+  left:50% !important;
+
+  transition:none !important;
+
+  animation:none !important;
+}
+
+/* =========================================
+   CAMERA FINAL STABLE FIX
+========================================= */
+
+.camera-panel,
+.camera-panel:hover{
+
+  transform:
+  translate(-50%,-50%) !important;
+
+  top:50% !important;
+
+  left:50% !important;
+
+  transition:none !important;
+
+  animation:none !important;
+}
+
+/* =========================================
+   DROPDOWN MENU
+========================================= */
+
+.dashboard-dropdown,
+.settings-dropdown{
+
+  margin-top:10px;
+
+  padding-left:18px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.dashboard-dropdown li,
+.settings-dropdown li{
+
+  list-style:none;
+
+  padding:12px 14px;
+
+  border-radius:16px;
+
+  cursor:pointer;
+
+  background:
+  rgba(255,255,255,.06);
+
+  transition:.3s ease;
+}
+
+.dashboard-dropdown li:hover,
+.settings-dropdown li:hover{
+
+  transform:translateX(5px);
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(127,92,255,.45),
+    rgba(255,0,204,.28)
+  );
+}
+
+/* =========================================
+   NIGHT MODE
+========================================= */
+
+.night-mode{
+
+  filter:
+  brightness(.75)
+  contrast(1.1);
+}
+
+/* =========================================
+   PERFORMANCE MODE
+========================================= */
+
+.performance-mode .glass,
+.performance-mode .glass-lite{
+
+  box-shadow:
+  0 0 35px rgba(0,212,255,.45),
+  0 0 50px rgba(127,92,255,.25);
+}
+
+/* =========================================
+   PRIVACY MODE
+========================================= */
+
+.privacy-mode #messages{
+
+  filter:blur(8px);
+}
+
+/* =========================================
+   SIDEBAR SCROLL
+========================================= */
+
+.sidebar{
+
+  overflow-y:auto;
+
+  scrollbar-width:none;
+}
+
+.sidebar::-webkit-scrollbar{
+
+  display:none;
+}
+
+/* =========================================
+   DROPDOWN ANIMATION
+========================================= */
+
+.dashboard-dropdown,
+.settings-dropdown{
+
+  max-height:0;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transition:
+  all .4s ease;
+}
+
+/* OPEN */
+
+.dashboard-dropdown.show,
+.settings-dropdown.show{
+
+  max-height:500px;
+
+  opacity:1;
+
+  margin-top:12px;
+}
+
+/* =========================================
+   SETTINGS DROPDOWN FINAL
+========================================= */
+
+.settings-dropdown{
+
+  max-height:0;
+
+  overflow:hidden;
+
+  opacity:0;
+
+  transition:
+  all .4s ease;
+}
+
+.settings-dropdown.show{
+
+  max-height:500px;
+
+  opacity:1;
+
+  margin-top:12px;
+}
+
+/* =========================================
+   TOP SETTINGS FINAL UI
+========================================= */
+
+.top-settings-wrap{
+
+  position:relative;
+}
+
+.top-settings-dropdown{
+
+  position:absolute;
+
+  top:48px;
+
+  right:0;
+
+  width:240px;
+
+  padding:14px;
+
+  border-radius:24px;
+
+  display:none;
+
+  flex-direction:column;
+
+  gap:12px;
+
+  background:
+  rgba(28,34,68,.42);
+
+  border:
+  1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(14px);
+
+  -webkit-backdrop-filter:blur(14px);
+
+  box-shadow:
+  0 8px 35px rgba(127,92,255,.25);
+
+  z-index:9999;
+}
+
+/* ITEMS */
+
+.top-settings-dropdown div{
+
+  padding:14px;
+
+  border-radius:16px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  transition:.3s ease;
+
+  background:
+  rgba(255,255,255,.06);
+
+  border:
+  1px solid rgba(255,255,255,.05);
+}
+
+/* HOVER */
+
+.top-settings-dropdown div:hover{
+
+  transform:
+  translateX(4px)
+  scale(1.02);
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(127,92,255,.45),
+    rgba(255,0,204,.25)
+  );
+
+  box-shadow:
+  0 0 20px rgba(127,92,255,.25);
+}
+
+
+
+/* =========================================
+   THEME OPTIONS
+========================================= */
+
+.theme-options{
+
+  display:flex;
+
+  gap:12px;
+
+  margin-top:12px;
+
+  flex-wrap:wrap;
+}
+
+/* =========================================
+   THEME CIRCLES
+========================================= */
+
+.theme-circle{
+
+  width:24px;
+
+  height:24px;
+
+  border-radius:50%;
+
+  cursor:pointer;
+
+  border:2px solid white;
+
+  transition:0.3s;
+}
+
+.theme-circle:hover{
+
+  transform:scale(1.15);
+}
+
+/* =========================================
+   COLORS
+========================================= */
+
+.red{
+
+  background:red;
+}
+
+.blue{
+
+  background:blue;
+}
+
+.green{
+
+  background:lime;
+}
+
+.purple{
+
+  background:purple;
+}
+
+.normal{
+
+  background:white;
+}
+
+/* =========================================
+   FINAL THEME EFFECTS
+========================================= */
+
+.red-theme .glass,
+.red-theme .sidebar,
+.red-theme .assistant-panel{
+
+border:1px solid rgba(255,0,0,0.4);
+
+box-shadow:0 0 25px rgba(255,0,0,0.35);
+}
+
+.blue-theme .glass,
+.blue-theme .sidebar,
+.blue-theme .assistant-panel{
+
+border:1px solid rgba(0,180,255,0.4);
+
+box-shadow:0 0 25px rgba(0,180,255,0.35);
+}
+
+.green-theme .glass,
+.green-theme .sidebar,
+.green-theme .assistant-panel{
+
+border:1px solid rgba(0,255,120,0.4);
+
+box-shadow:0 0 25px rgba(0,255,120,0.35);
+}
+
+.purple-theme .glass,
+.purple-theme .sidebar,
+.purple-theme .assistant-panel{
+
+border:1px solid rgba(180,0,255,0.4);
+
+box-shadow:0 0 25px rgba(180,0,255,0.35);
+}
+
+.normal-theme .glass,
+.normal-theme .sidebar,
+.normal-theme .assistant-panel{
+
+border:1px solid rgba(255,255,255,0.1);
+
+box-shadow:none;
+}
+
+/* =========================================
+   NOVA LOGO EFFECT
+========================================= */
+
+.red-theme .nova-logo{
+
+filter:drop-shadow(0 0 18px red);
+}
+
+.blue-theme .nova-logo{
+
+filter:drop-shadow(0 0 18px cyan);
+}
+
+.green-theme .nova-logo{
+
+filter:drop-shadow(0 0 18px lime);
+}
+
+.purple-theme .nova-logo{
+
+filter:drop-shadow(0 0 18px violet);
+}
+
+.normal-theme .nova-logo{
+
+filter:none;
+}
+
+
+
+
+
+/* =========================================
+PERFORMANCE MODES
+========================================= */
+
+.low-performance{
+
+  filter:brightness(0.9);
+}
+
+.medium-performance{
+
+  filter:brightness(1);
+}
+
+.high-performance{
+
+  filter:brightness(1.2);
+}
+
+/* =========================================
+NIGHT MODES
+========================================= */
+
+.dark-mode{
+
+  background:#050505;
+}
+
+.dark-mode .glass{
+
+  background:rgba(0,0,0,0.45);
+}
+
+.neon-mode{
+
+  filter:hue-rotate(120deg);
+}
+
+.midnight-mode{
+
+  background:#020617;
+}
+
+.midnight-mode .glass{
+
+  background:rgba(10,10,30,0.55);
+}
+
+
+
+
+
+.mode-circles{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:10px;
+
+margin-top:10px;
+
+margin-left:auto;
+
+width:70px;
+}
+
+.color-circle{
+
+width:24px;
+
+height:24px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+border:2px solid white;
+}

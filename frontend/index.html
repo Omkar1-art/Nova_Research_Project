@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>NOVA AI Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
+
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+
+  <div class="bg-overlay"></div>
+
+  <!-- =====================================================
+       TOPBAR
+  ====================================================== -->
+
+  <header class="topbar">
+
+    <!-- CENTER INFO -->
+
+    <div class="center-info">
+
+      <div id="clock">
+        08:51:56 PM
+      </div>
+
+      <div class="top-location">
+        ☁ Mumbai, India • 25°C
+      </div>
+
+    </div>
+
+    <!-- RIGHT ICONS -->
+
+    <div class="top-icons">
+
+      <span id="bellBtn">🔔</span>
+
+      <div class="top-settings-wrap">
+
+  <span id="topSettingsBtn">⚙</span>
+
+  <div class="top-settings-dropdown hidden-panel">
+
+   <div>
+🔊 Voice Volume
+</div>
+
+<div>
+🌍 Language
+</div>
+
+<div>
+🔔 Notifications
+</div>
+
+<div>
+🧹 Clear Cache
+</div>
+
+<div>
+🔐 Privacy Mode
+</div>
+
+<div>
+💾 Backup Data
+</div>
+  </div>
+
+</div>
+
+      <div class="avatar">
+        <img src="./assets/nova-logo.png" alt="Nova Logo">
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- =====================================================
+       DASHBOARD
+  ====================================================== -->
+
+  <div class="dashboard">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar glass">
+
+      <!-- LOGO -->
+
+      <div class="logo-wrap">
+
+        <div class="logo-circle">
+          <img src="./assets/nova-logo.png"
+            class="nova-logo"
+              alt="Nova Logo">
+        </div>
+
+        <div>
+
+          <h1>NOVA</h1>
+
+          <p>YOUR AI ASSISTANT</p>
+
+        </div>
+
+      </div>
+
+      <!-- MENU -->
+
+      <!-- MENU -->
+
+<ul class="menu">
+
+  <li class="active menu-dashboard">
+    <span class="menu-icon">⌂</span>
+    Dashboard
+  </li>
+
+  <!-- DASHBOARD DROPDOWN 😎 -->
+
+<ul class="dashboard-dropdown hidden-panel">
+
+  <li id="statsBtn">
+    📊 System Stats
+  </li>
+
+  <li id="performanceBtn">
+
+  ⚡ Performance Mode
+
+  <div class="mode-circles">
+
+<div id="lowMode"
+class="color-circle"
+style="background:#22c55e;">
+</div>
+
+<div id="mediumMode"
+class="color-circle"
+style="background:#eab308;">
+</div>
+
+<div id="highMode"
+class="color-circle"
+style="background:#ef4444;">
+</div>
+
+<div id="normalMode"
+class="color-circle"
+style="background:#ffffff;">
+</div>
+
+</div>
+
+</li>
+
+  <li id="internetBtn">
+    🌐 Internet Status
+  </li>
+
+  <li id="aiStatusBtn">
+    🧠 AI Status
+  </li>
+
+  <li id="activityBtn">
+    📂 Recent Activity
+  </li>
+
+  <li id="nightBtn">
+
+  🌙 Night Mode
+
+  <div class="mode-circles">
+
+<div id="darkMode"
+class="color-circle"
+style="background:#111111;">
+</div>
+
+<div id="neonMode"
+class="color-circle"
+style="background:#a855f7;">
+</div>
+
+<div id="midnightMode"
+class="color-circle"
+style="background:#1e3a8a;">
+</div>
+
+<div id="normalNight"
+class="color-circle"
+style="background:#ffffff;">
+</div>
+
+</div>
+
+</li>
+
+</ul>
+
+<!-- MAIN MENU -->
+
+<li class="menu-chat">
+  <span class="menu-icon">💬</span>
+  AI Chat
+</li>
+
+<li class="menu-files">
+  <span class="menu-icon">🗂</span>
+  Files
+</li>
+
+<li class="menu-notes">
+  <span class="menu-icon">📝</span>
+  Notes
+</li>
+
+<li class="menu-settings">
+  <span id="settingsTopBtn">⚙</span>
+  Settings
+</li>
+
+  <!-- SETTINGS DROPDOWN 😎 -->
+
+  <ul class="settings-dropdown hidden-panel">
+
+    <li id="themeColorBtn">
+
+  🎨 Theme Color
+
+  <div class="theme-options">
+
+    <span class="theme-circle red"></span>
+
+    <span class="theme-circle blue"></span>
+
+    <span class="theme-circle green"></span>
+
+    <span class="theme-circle purple"></span>
+
+    <span class="theme-circle normal"></span>
+
+  </div>
+
+</li>
+
+    <li id="voiceVolumeBtn">
+      🔊 Voice Volume
+    </li>
+
+    <li id="languageBtn">
+      🌍 Language
+    </li>
+
+    <li id="notificationToggleBtn">
+      🔔 Notifications
+    </li>
+
+    <li id="clearCacheBtn">
+      🧹 Clear Cache
+    </li>
+
+    <li id="privacyBtn">
+      🔐 Privacy Mode
+    </li>
+
+    <li id="backupBtn">
+      💾 Backup Data
+    </li>
+
+  </ul>
+
+  <li>
+    <span class="menu-icon">🔒</span>
+    Login
+  </li>
+
+  <li>
+    <span class="menu-icon">↪</span>
+    Logout
+  </li>
+
+</ul>
+
+      <!-- WEATHER -->
+
+      <div class="bottom-weather">
+
+        <h2>32°C</h2>
+
+        <p>Mostly clear</p>
+
+      </div>
+
+    </aside>
+
+    <!-- =====================================================
+         LEFT PANEL
+    ====================================================== -->
+
+    <section class="left-panel">
+
+      <!-- SYSTEM CARD -->
+
+      <div class="system-card glass">
+
+        <div class="card-head">
+
+          <h3>📱 System Overview</h3>
+
+          <span class="live">LIVE</span>
+
+        </div>
+
+        <!-- MINI STATS -->
+
+        <div class="mini-stats">
+
+          <div class="mini glass-lite">
+
+            <span>⚡</span>
+
+            <h2>98%</h2>
+
+            <p>Performance</p>
+
+          </div>
+
+          <div class="mini glass-lite">
+
+            <span>🌐</span>
+
+            <h2>5.2G</h2>
+
+            <p>Network</p>
+
+          </div>
+
+        </div>
+
+        <!-- USAGE -->
+
+        <div class="usage">
+
+          <label>
+            CPU Usage
+            <span>28%</span>
+          </label>
+
+          <div class="bar">
+            <div id="cpu"></div>
+          </div>
+
+          <label>
+            RAM Usage
+            <span>46%</span>
+          </label>
+
+          <div class="bar">
+            <div id="ram"></div>
+          </div>
+
+          <label>
+            GPU Usage
+            <span>32%</span>
+          </label>
+
+          <div class="bar">
+            <div id="gpu"></div>
+          </div>
+
+          <label>
+            Storage
+            <span>62%</span>
+          </label>
+
+          <div class="bar">
+            <div id="storage"></div>
+          </div>
+
+        </div>
+
+        <!-- ENGINE -->
+
+        <div class="engine glass-lite">
+
+          <div>
+
+            <h4>AI Engine</h4>
+
+            <p>Running Smoothly</p>
+
+          </div>
+
+          <div class="toggle"></div>
+
+        </div>
+
+      </div>
+
+      <!-- QUICK ACTIONS -->
+
+      <div class="quick-card glass">
+
+        <h3>⚡ Quick Actions</h3>
+
+        <div class="quick-grid">
+
+          <button id="googleSearchBtn">
+            🌐 Internet Search
+          </button>
+
+          <button id="cameraBtn">
+            📷 Camera
+          </button>
+
+          <button id="photoBtn">
+            🖼 Photo
+          </button>
+
+          <button id="scanBtn">
+            📈 System Scan
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         MAIN PANEL
+    ====================================================== -->
+
+    <main class="main-panel">
+
+      <div class="orb">
+            <img src="./assets/nova-logo.png"
+                class="nova-logo"
+                alt="Nova Logo">
+      </div>
+
+      <h1>NOVA</h1>
+
+      <p>YOUR AI ASSISTANT</p>
+
+      <!-- VOICE WAVE -->
+
+      <div class="voice-bar glass">
+
+        <div class="voice-line">
+
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- =====================================================
+         CHAT PANEL
+    ====================================================== -->
+
+    <section class="chat-panel glass">
+
+      <!-- TOP -->
+
+      <div class="chat-top">
+
+        <div class="assistant-head">
+
+          <div class="ai-star">
+            ✦
+          </div>
+
+          <div>
+
+            <h2>NOVA Assistant</h2>
+
+            <small class="online">
+              ● Online
+            </small>
+
+          </div>
+
+        </div>
+
+        <div class="chat-actions">
+
+          <button class="clear-chat-btn">
+            🗑 Clear
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- SUGGESTIONS -->
+
+      <div class="suggestions">
+
+      <button id="jokeBtn">
+        😊 Tell me a joke
+      </button>
+
+      <button id="youtubeBtn">
+        ▶ Open YouTube
+      </button>
+
+      <button id="newsBtn">
+        📰 What's the news?
+      </button>
+
+      <button id="reminderBtn">
+        ⏰ Set a reminder
+       </button>
+
+</div>
+      <!-- MESSAGES -->
+
+      <div id="messages">
+
+        <div class="bot-msg">
+          Hello 👋
+        </div>
+
+      </div>
+
+      <!-- CHAT INPUT -->
+
+      <div class="chat-input glass-lite">
+
+        <!-- INPUT -->
+
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Ask Nova anything..."
+        />
+
+        <!-- MIC -->
+
+        <button class="mic-btn">
+
+          <span>🎙</span>
+
+        </button>
+
+        <!-- STOP -->
+
+        <button class="stop-btn">
+
+          <span>⏹</span>
+
+        </button>
+
+        <!-- SEND -->
+
+        <button
+          class="send-btn"
+          onclick="sendMessage()"
+        >
+          ➜
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- FILE INPUT -->
+
+  <input
+    type="file"
+    id="fileInput"
+    hidden
+  />
+
+  <!-- NOTES PANEL -->
+
+  <div class="notes-panel glass hidden-panel">
+
+  <div class="notes-header">
+
+    <h2>📝 Nova Notes</h2>
+
+    <button
+      id="closeNotesBtn"
+    >
+      ✖
+    </button>
+
+  </div>
+
+  <textarea
+    id="notesInput"
+    placeholder="Write your notes..."
+  ></textarea>
+
+  <div class="notes-actions">
+
+    <button id="saveNotesBtn">
+      Save Notes
+    </button>
+
+    <button id="deleteNotesBtn">
+      Delete Notes
+    </button>
+
+  </div>
+
+</div>
+
+  <!-- CAMERA PANEL -->
+
+  <div class="camera-panel glass hidden-panel">
+
+  <div class="camera-header">
+
+    <h2>📷 Nova Camera</h2>
+
+    <button
+      id="closeCameraBtn"
+    >
+      ✖
+    </button>
+
+  </div>
+
+  <video
+    id="cameraVideo"
+    autoplay
+    playsinline
+  ></video>
+
+  <button id="captureBtn">
+
+    📸 Capture
+
+  </button>
+
+</div>
+
+<!-- SETTINGS PANEL -->
+
+<div class="settings-panel glass hidden-panel">
+
+  <div class="settings-header">
+
+    <h2>⚙ Nova Settings</h2>
+
+    <button id="closeSettingsBtn">
+      ✖
+    </button>
+
+  </div>
+
+  <div class="settings-grid">
+
+    <button id="themeBtn">
+      🌙 Theme
+    </button>
+
+    <button id="voiceToggleBtn">
+      🔊 Voice
+    </button>
+
+    <button id="clearMemoryBtn">
+      🧠 Memory
+    </button>
+
+    <button id="clearAllChatsBtn">
+      🗑 Chats
+    </button>
+
+  </div>
+
+</div>
+
+<!-- NOTIFICATION PANEL -->
+
+<div class="notification-panel glass hidden-panel">
+
+  <div class="settings-header">
+
+    <h2>🔔 Notifications</h2>
+
+    <button id="closeBellBtn">
+      ✖
+    </button>
+
+  </div>
+
+  <div id="notificationList">
+
+    <div class="notify-item">
+      Nova Started 😎
+    </div>
+
+  </div>
+
+</div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
